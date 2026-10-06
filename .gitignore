@@ -8,3 +8,4 @@ data/cache/*
 reports/review_results.csv
 reports/review_summary.json
 work/
+outputs/

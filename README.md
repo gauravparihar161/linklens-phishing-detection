@@ -79,7 +79,7 @@ Launch the interactive app:
 streamlit run app.py
 ```
 
-Streamlit prints a local address (typically `http://localhost:8501`) to open in your browser. The app does not fetch the submitted URL. When hosted remotely, URL text is sent to your application server for analysis, so avoid submitting private links or URLs containing access tokens.
+Streamlit prints a local address (typically `http://localhost:8501`) to open in your browser. The app does not fetch the submitted URL. When hosted remotely, URL text is sent to your application server for analysis, so avoid submitting private links or URLs containing access tokens. The optional community feed is disabled by default. To enable it locally after reviewing the feed terms, set `$env:LINKLENS_ENABLE_COMMUNITY_FEED="true"` in PowerShell before launching Streamlit.
 
 ## Review false positives and false negatives
 
@@ -108,6 +108,17 @@ docker compose logs -f linklens
 ```
 
 Open `http://localhost:8501`; stop the container with `docker compose down`. The container runs as a non-root user and has a health check. Compose disables the OpenPhish Community Feed by default. Its terms limit use to personal/research purposes and prohibit redistributing the feed, so don't enable it for public hosting unless your use is permitted. For a public deployment, use a threat feed whose license explicitly permits serving your application, or keep feed checks disabled.
+
+## Deploy the public app on Streamlit Community Cloud
+
+The repository is public and contains the app entrypoint, pinned `requirements.txt`, evaluation report, and trained model. To publish the live app, sign in at [Streamlit Community Cloud](https://share.streamlit.io/), choose **Create app**, then select:
+
+- Repository: `gauravparihar161/linklens-phishing-detection`
+- Branch: `main`
+- Main file path: `app.py`
+- Python version: `3.12`
+
+Leave the Secrets field empty and deploy. The community feed is disabled by default on the hosted app. The app is public, and any URL submitted for analysis is sent to the Streamlit-hosted application server; the destination website is not fetched. Do not submit private or tokenized links.
 
 ## Model comparison and evaluation choices
 

@@ -20,7 +20,9 @@ from phishing_detector.threat_feed import load_feed, lookup_url, refresh_feed
 
 REPORT_PATH = ROOT / "reports" / "evaluation.json"
 REVIEW_PATH = ROOT / "data" / "curated" / "review_urls.csv"
-COMMUNITY_FEED_ENABLED = os.getenv("LINKLENS_ENABLE_COMMUNITY_FEED", "true").strip().lower() in {"1", "true", "yes"}
+# Keep the optional research feed off unless explicitly enabled. This is safer
+# for public cloud deployments where a shared cache could redistribute feed data.
+COMMUNITY_FEED_ENABLED = os.getenv("LINKLENS_ENABLE_COMMUNITY_FEED", "false").strip().lower() in {"1", "true", "yes"}
 
 
 def current_feed() -> dict:
