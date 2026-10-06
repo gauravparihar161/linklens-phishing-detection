@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.streamlit/secrets.toml
+data/raw/*.csv
+data/cache/*
+reports/review_results.csv
+reports/review_summary.json
+work/

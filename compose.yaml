@@ -1,0 +1,11 @@
+services:
+  linklens:
+    build: .
+    image: linklens:local
+    ports:
+      - "8501:8501"
+    environment:
+      LINKLENS_ENABLE_COMMUNITY_FEED: "${LINKLENS_ENABLE_COMMUNITY_FEED:-false}"
+    volumes:
+      - ./data/cache:/app/data/cache
+    restart: unless-stopped

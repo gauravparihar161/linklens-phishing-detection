@@ -1,0 +1,75 @@
+{
+  "model": "Character TF-IDF (3-5 grams) + Logistic Regression",
+  "selection_criterion": "Highest validation F2 after per-model validation threshold selection; ties broken by validation recall, then average precision",
+  "selected_model": "Logistic Regression",
+  "model_comparison": [
+    {
+      "model": "Logistic Regression",
+      "validation_threshold": 0.4,
+      "validation_f2": 0.9379743554935766,
+      "validation_recall": 0.9527420871200251,
+      "validation_precision": 0.8832142234617396,
+      "validation_average_precision": 0.9801016741082048,
+      "fit_seconds": 20.15
+    },
+    {
+      "model": "Multinomial Naive Bayes",
+      "validation_threshold": 0.1,
+      "validation_f2": 0.9066470866657766,
+      "validation_recall": 0.9364462550924475,
+      "validation_precision": 0.8042741023846692,
+      "validation_average_precision": 0.9650443531402232,
+      "fit_seconds": 0.23
+    },
+    {
+      "model": "SGD Logistic Classifier",
+      "validation_threshold": 0.44,
+      "validation_f2": 0.9209366660954292,
+      "validation_recall": 0.9430899404575368,
+      "validation_precision": 0.8418373055835291,
+      "validation_average_precision": 0.9694035590891337,
+      "fit_seconds": 1.88
+    }
+  ],
+  "positive_class": "bad / phishing",
+  "split": "GroupShuffleSplit by approximate hostname; 20% test, validation from remaining groups",
+  "rows": {
+    "raw": 549346,
+    "after_cleanup": 507191,
+    "conflicting_urls_excluded": 1,
+    "rows_missing_timestamp": 0,
+    "train": 340841,
+    "validation": 68914,
+    "test": 97436
+  },
+  "time_split": null,
+  "class_counts_after_cleanup": {
+    "legitimate": 392896,
+    "phishing": 114295
+  },
+  "vectorization_seconds": 52.5,
+  "fit_seconds": 22.26,
+  "test_predict_seconds": 8.298,
+  "test_urls_per_second": 11742.3,
+  "metrics": {
+    "threshold": 0.4,
+    "accuracy": 0.9494437374276448,
+    "balanced_accuracy": 0.9523207239588587,
+    "phishing_precision": 0.8482975701508579,
+    "phishing_recall": 0.9577861569800199,
+    "phishing_f1": 0.899723149580653,
+    "phishing_f2": 0.9336842905790794,
+    "average_precision": 0.9781014923151449,
+    "roc_auc": 0.9903714962985418,
+    "confusion_matrix": {
+      "true_negative": 70411,
+      "false_positive": 3952,
+      "false_negative": 974,
+      "true_positive": 22099
+    }
+  },
+  "notes": [
+    "Evaluation numbers describe this dataset and split; they do not guarantee performance on future phishing campaigns.",
+    "Hostname grouping is approximate because the source often omits URL schemes and public-suffix metadata."
+  ]
+}
