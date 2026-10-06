@@ -63,7 +63,7 @@ left, right = st.columns([3, 1])
 with left:
     st.markdown('<div class="brand"><span class="brand-mark">↗</span>LinkLens <span style="color:#8b9993;font-weight:500;font-size:.82rem;letter-spacing:0">URL Risk Check</span></div>', unsafe_allow_html=True)
 with right:
-    st.markdown('<div style="text-align:right;padding-top:7px;color:#687773;font-size:.83rem">LOCAL ANALYSIS · NO SITE VISITS</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align:right;padding-top:7px;color:#687773;font-size:.83rem">URL TEXT ONLY · NO SITE VISITS</div>', unsafe_allow_html=True)
 
 st.write("")
 st.markdown('<div class="eyebrow">A smarter first look at a link</div><div class="hero-title">Pause before<br>you click.</div><div class="hero-copy">Paste a link to inspect its URL patterns. LinkLens uses a machine-learning model to estimate phishing risk without opening the website.</div>', unsafe_allow_html=True)
